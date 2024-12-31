@@ -1,10 +1,6 @@
 import Link from "next/link";
-import { client } from "@/sanity/lib/client";
 import { POSTS_QUERY } from "@/sanity/lib/queries";
-import type { FilteredResponseQueryOptions } from "next-sanity";
 import { sanityFetch } from "@/sanity/lib/live";
-
-const options: FilteredResponseQueryOptions = { next: { revalidate: 60 } };
 
 export default async function Page() {
   const { data: posts } = await sanityFetch({ query: POSTS_QUERY });
